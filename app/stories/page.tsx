@@ -1,5 +1,3 @@
-import projectsData from '@/data/projectsData'
-import Card from '@/components/Card'
 import { genPageMetadata } from 'app/seo'
 import CardComponent from '@/components/CardComponent'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
