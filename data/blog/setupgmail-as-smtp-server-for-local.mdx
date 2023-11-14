@@ -1,0 +1,39 @@
+---
+title: 'Setup Sendinblue as SMTP server for local AEM development environment'
+date: '2022-03-02'
+tags: ['AEM', 'howto', 'Tutorial']
+draft: false
+summary: 'Learn how to setup Sendinblue as SMTP server in local aem environment to send emails.'
+---
+
+In this tutorial I am going to explain, how to set up `Sendinblue` as your SMTP server in AEM to let you send emails out of your local author/publisher instance.
+
+### Sendinblue account creation and SMTP access
+
+- Navigate to Sendinblue official website and sign up – [https://www.sendinblue.com/](https://www.sendinblue.com/)
+- Access the SMTP details using this link – [https://account.sendinblue.com/advanced/api](https://account.sendinblue.com/advanced/api)
+- It will contain SMTP, Port, Login and Master Password for your account.
+- Sendinblue provide daily sending limit of 300 emails only- [https://app.sendinblue.com/billing/my-plan](https://app.sendinblue.com/billing/my-plan)
+
+### Day CQ Mail Service Configuration:
+
+1. Go to the Felix Console Config Manager(http://localhost:4502/system/console/configMgr)
+2. Scroll down and click to edit the Day CQ Mail Service OSGi config.
+3. Enter the following details
+
+| SMTP Server Host  | smtp-relay.sendinblue.com     |
+| ----------------- | ----------------------------- |
+| SMTP Server Port  | 587                           |
+| SMTP User         | Login Email in Sendinblue     |
+| SMTP Password     | Master Password in Sendinblue |
+| From Address      | from address                  |
+| SMTP Use SSL      | Don't Check                   |
+| SMTP use StartTLS | Yes                           |
+
+4. Hit Save
+
+5. Run a user through a workflow containing a group of which you are a member, or send out a newsletter to a group which you are a part of.
+
+You should receive the email in your inbox.
+
+It is worth noting that for production environments, you should set up a production grade SMTP service rather than use GMail.
