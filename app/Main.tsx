@@ -10,9 +10,9 @@ export default function Home({ posts }) {
     <>
       <div>
         <Intro />
-        <h4 className="flex pb-6 text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl md:text-5xl">
+        <h6 className="flex pb-6 text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
           Latest Stories
-        </h4>
+        </h6>
         <hr className="dark:border-white-700 border-gray-200" />
         <BlogPosts posts={posts} />
       </div>

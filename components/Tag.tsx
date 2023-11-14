@@ -1,4 +1,7 @@
+// Import the necessary modules
+'use client'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { slug } from 'github-slugger'
 interface Props {
   text: string
@@ -12,15 +15,32 @@ const tagColors = [
 let colorIndex = 0
 
 const Tag = ({ text }: Props) => {
+  // Check if the current page is the tags page
+  const pathName = usePathname()
+
+  const isTagsPage = pathName === '/tags' ? true : false
   const colorClass = tagColors[colorIndex]
   colorIndex = (colorIndex + 1) % tagColors.length
+
+  // Conditionally render the Link component based on whether it's the tags page
   return (
-    <Link
-      href={`/tags/${slug(text)}`}
-      className={`mt-3 items-center px-5 py-1 text-center text-xs font-medium capitalize sm:flex ${colorClass}`}
-    >
-      {text.split(' ').join('-')}
-    </Link>
+    <>
+      {isTagsPage ? (
+        <Link
+          href={`/tags/${slug(text)}`}
+          className={`text-s  items-center rounded-full p-3 text-center font-medium capitalize sm:flex ${colorClass}`}
+        >
+          {text.split(' ').join('-')}
+        </Link>
+      ) : (
+        <Link
+          href={`/tags/${slug(text)}`}
+          className={`mt-3 hidden items-center px-5 py-1 text-center text-xs font-medium capitalize sm:flex ${colorClass}`}
+        >
+          {text.split(' ').join('-')}
+        </Link>
+      )}
+    </>
   )
 }
 

@@ -19,7 +19,7 @@ const BlogPosts = ({ posts }) => {
                 <time dateTime={date}>{formatDate(date)}</time>
               </div>
               <Link href={`/blog/${slug}`}>
-                <p className="text-base font-semibold leading-tight tracking-tight text-gray-700 hover:text-gray-900 dark:text-gray-100 sm:text-lg md:text-xl">
+                <p className="text-base font-semibold capitalize leading-tight tracking-tight text-gray-700 hover:text-gray-900 dark:text-gray-100 sm:text-lg md:text-xl">
                   {title}
                 </p>
                 <p className="mt-3 hidden text-sm text-gray-500 sm:line-clamp-2 lg:block">

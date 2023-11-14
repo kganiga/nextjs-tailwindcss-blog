@@ -47,7 +47,7 @@ const FeaturedArticles = ({ posts }) => {
                             ))}
                           </div>
                           <div className="mt-3">
-                            <h3 className="font-medium text-gray-900">{title}</h3>
+                            <h3 className="font-medium capitalize text-gray-900">{title}</h3>
                           </div>
                         </Link>
                       </div>
