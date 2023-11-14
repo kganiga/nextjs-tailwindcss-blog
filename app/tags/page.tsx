@@ -22,9 +22,8 @@ export default async function Page() {
           {tagKeys.length === 0 && 'No tags found.'}
           {sortedTags.map((t) => {
             return (
-              <div key={t} className="mb-2 mr-2">
+              <div key={t} className="ml-1 mr-1">
                 <Tag text={t} />
-
               </div>
             )
           })}
