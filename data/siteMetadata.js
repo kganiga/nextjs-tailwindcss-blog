@@ -16,7 +16,7 @@ const siteMetadata = {
   email: 'admin@khalilganiga.com',
   github: 'https://github.com/kganiga',
   twitter: 'https://twitter.com/Im_Khalil',
-  facebook: 'https://facebook.com/khalilbasha.g',
+  facebook:'https://facebook.com/khalilbasha.g',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/khalilg',
   instagram: 'https://instagram.com/khalilbasha.g',
