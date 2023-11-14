@@ -15,7 +15,7 @@ const Header = () => {
             {typeof siteMetadata.headerTitle === 'string' ? (
               <div className="h-6 text-2xl font-semibold sm:block">
                 {siteMetadata.headerTitle}
-                <p className="mt-2 text-sm font-semibold text-gray-400 italic hover:not-italic ml-6">
+                <p className="ml-6 mt-2 text-sm font-semibold italic text-gray-400 hover:not-italic">
                   {siteMetadata.description}
                 </p>
               </div>
@@ -26,16 +26,15 @@ const Header = () => {
         </Link>
       </div>
       <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
-        {headerNavLinks
-          .map((link) => (
-            <Link
-              key={link.title}
-              href={link.href}
-              className="hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
-            >
-              {link.title}
-            </Link>
-          ))}
+        {headerNavLinks.map((link) => (
+          <Link
+            key={link.title}
+            href={link.href}
+            className="hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
+          >
+            {link.title}
+          </Link>
+        ))}
         <SearchButton />
         <ThemeSwitch />
         <MobileNav />

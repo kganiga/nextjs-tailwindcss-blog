@@ -121,40 +121,44 @@ export default function ListLayoutWithTags({
           </div>
           <div>
             <ul>
-              {displayPosts.filter((post) => !post.tags.includes('stories')).map((post) => {
-                const { path, date, title, summary, tags } = post
-                return (<>
-                  <li key={path} className="py-5">
-                    <article className="flex flex-col space-y-2 xl:space-y-0">
-                      <dl>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="text-xs font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                        </dd>
-                      </dl>
-                      <div className="space-y-3">
-                        <div>
-                          <h2 className="text-xl font-semibold leading-8 tracking-tight">
-                            <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="hidden lg:block mt-3 text-sm text-gray-500 sm:line-clamp-2">
-                            {summary}
+              {displayPosts
+                .filter((post) => !post.tags.includes('stories'))
+                .map((post) => {
+                  const { path, date, title, summary, tags } = post
+                  return (
+                    <>
+                      <li key={path} className="py-5">
+                        <article className="flex flex-col space-y-2 xl:space-y-0">
+                          <dl>
+                            <dt className="sr-only">Published on</dt>
+                            <dd className="text-xs font-medium leading-6 text-gray-500 dark:text-gray-400">
+                              <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                            </dd>
+                          </dl>
+                          <div className="space-y-3">
+                            <div>
+                              <h2 className="text-xl font-semibold leading-8 tracking-tight">
+                                <Link
+                                  href={`/${path}`}
+                                  className="text-gray-900 dark:text-gray-100"
+                                >
+                                  {title}
+                                </Link>
+                              </h2>
+                              <div className="mt-3 hidden text-sm text-gray-500 sm:line-clamp-2 lg:block">
+                                {summary}
+                              </div>
+                              <div className="flex flex-wrap">
+                                {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                              </div>
+                            </div>
                           </div>
-                          <div className="flex flex-wrap">
-                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                          </div>
-
-                        </div>
-
-                      </div>
-                    </article>
-                  </li>
-                  <hr />
-                </>
-                )
-              })}
+                        </article>
+                      </li>
+                      <hr />
+                    </>
+                  )
+                })}
             </ul>
             {pagination && pagination.totalPages > 1 && (
               <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
