@@ -25,7 +25,6 @@ export default function Home({ posts }) {
           >
             All Posts &rarr;
           </Link>
-
         </div>
       )}
       <hr className="dark:border-white-700 border-gray-200 pb-12" />

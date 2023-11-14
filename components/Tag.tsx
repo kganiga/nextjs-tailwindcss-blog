@@ -17,7 +17,7 @@ const Tag = ({ text }: Props) => {
   return (
     <Link
       href={`/tags/${slug(text)}`}
-      className={`capitalize text-center mt-3 px-5 py-1 items-center text-xs font-medium sm:flex ${colorClass}`}
+      className={`mt-3 items-center px-5 py-1 text-center text-xs font-medium capitalize sm:flex ${colorClass}`}
     >
       {text.split(' ').join('-')}
     </Link>
