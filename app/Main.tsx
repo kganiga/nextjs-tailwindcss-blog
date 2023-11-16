@@ -10,7 +10,7 @@ export default function Home({ posts }) {
     <>
       <div>
         {/* <Intro />*/}
-        <h6 className="pb-6 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
+        <h6 className="m-6  pt-6 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
           Latest Stories
         </h6>
 
