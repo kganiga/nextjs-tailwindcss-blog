@@ -8,7 +8,7 @@ const siteMetadata = {
   description: " - A developer's log book.",
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://www.khalilganiga.netlify.app',
+  siteUrl: 'https://khalilganiga.netlify.app',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
@@ -16,7 +16,7 @@ const siteMetadata = {
   email: 'admin@khalilganiga.com',
   github: 'https://github.com/kganiga',
   twitter: 'https://twitter.com/Im_Khalil',
-  facebook:'https://facebook.com/khalilbasha.g',
+  facebook: 'https://facebook.com/khalilbasha.g',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/khalilg',
   instagram: 'https://instagram.com/khalilbasha.g',
