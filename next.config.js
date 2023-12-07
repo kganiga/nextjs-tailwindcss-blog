@@ -4,6 +4,17 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
+const withPWA = require('next-pwa')
+module.exports = withPWA({
+  //...before
+  pwa: {
+    dest: 'public',
+    register: true,
+    skipWaiting: true,
+  },
+  //...after
+})
+
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
