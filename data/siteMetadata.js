@@ -8,8 +8,8 @@ const siteMetadata = {
   description: " - A developer's log book.",
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://khalilganiga.netlify.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://khalilganiga.in',
+  siteRepo: 'https://github.com/kganiga/nextjs-tailwindcss-blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
