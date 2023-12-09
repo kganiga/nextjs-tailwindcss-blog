@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row">
         <Link
           href="/"
-          className="title-font flex items-center justify-center font-medium text-gray-500 md:justify-start"
+          className="title-font flex items-center justify-center font-medium text-gray-500 hover:underline md:justify-start"
         >
           {siteMetadata.title}
         </Link>
@@ -16,7 +16,7 @@ export default function Footer() {
           {`© ${new Date().getFullYear()}`} All rights reserved —
           <Link
             href="https://twitter.com/Im_Khalil"
-            className="ml-1 text-gray-600"
+            className="ml-1 text-gray-600 hover:underline"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -24,7 +24,11 @@ export default function Footer() {
           </Link>
         </p>
         <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
-          <Link className="text-gray-500" href="https://facebook.com/khalilbasha.g">
+          <Link
+            className="text-gray-500"
+            href="https://facebook.com/khalilbasha.g"
+            aria-label="facebook-link"
+          >
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -36,7 +40,11 @@ export default function Footer() {
               <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
             </svg>
           </Link>
-          <Link className="ml-3 text-gray-500" href="https://twitter.com/Im_Khalil">
+          <Link
+            className="ml-3 text-gray-500"
+            href="https://twitter.com/Im_Khalil"
+            aria-label="twitter-profile"
+          >
             <svg
               fill="currentColor"
               strokeLinecap="round"
@@ -49,7 +57,11 @@ export default function Footer() {
             </svg>
           </Link>
 
-          <Link className="ml-3 text-gray-500" href={siteMetadata.instagram}>
+          <Link
+            className="ml-3 text-gray-500"
+            href={siteMetadata.instagram}
+            aria-label="instagram-profile"
+          >
             <svg
               fill="none"
               stroke="currentColor"
@@ -63,7 +75,11 @@ export default function Footer() {
               <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" />
             </svg>
           </Link>
-          <Link className="ml-3 text-gray-500" href="https://www.linkedin.com/in/khalilbashag">
+          <Link
+            className="ml-3 text-gray-500"
+            href="https://www.linkedin.com/in/khalilbashag"
+            aria-label="linkedin-profile"
+          >
             <svg
               fill="currentColor"
               stroke="currentColor"
