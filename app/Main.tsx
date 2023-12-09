@@ -1,5 +1,4 @@
 import Link from '@/components/Link'
-import Intro from '@/components/Intro'
 import BlogPosts from '@/components/BlogPosts'
 import FeaturedArticles from '@/components/FeaturedArticles'
 
@@ -10,21 +9,21 @@ export default function Home({ posts }) {
     <>
       <div>
         {/* <Intro />*/}
-        <h6 className="m-6  pt-6 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
-          Latest Stories
-        </h6>
+        <div className="min-h-12">
+          {' '}
+          {/* Adjust the height value as needed */}
+          <h6 className="m-6 pt-6 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
+            Latest Stories
+          </h6>
+        </div>
 
         <hr className="dark:border-white-700 border-gray-200" />
         <BlogPosts posts={posts} />
       </div>
       {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end pb-6 pt-6 text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            aria-label="all posts"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-          >
-            All Posts &rarr;
+          <Link href="/blog" aria-label="all posts" className="text-primary-600 dark:text-gray-100">
+            All Posts →
           </Link>
         </div>
       )}
