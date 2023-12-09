@@ -1,4 +1,5 @@
 import React, { FC, memo } from 'react'
+// Replace the alias '@' with the correct path or alias for the Link component
 import Link from '@/components/Link'
 
 interface FeaturedArticleProps {
@@ -14,6 +15,7 @@ const FeaturedArticle: FC<FeaturedArticleProps> = memo(({ slug, title, summary }
       <div className="relative h-full rounded-lg border-2 border-teal-500 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <div className="-mt-1 flex items-center">
           <h3 className="text-lg font-semibold capitalize dark:text-gray-100">
+            {/* Replace the alias '@' with the correct path or alias for the Link component */}
             <Link href={`/blog/${slug}`} className="dark:text-gray-100">
               {title}
             </Link>
@@ -25,6 +27,8 @@ const FeaturedArticle: FC<FeaturedArticleProps> = memo(({ slug, title, summary }
     </div>
   </div>
 ))
+
+FeaturedArticle.displayName = 'FeaturedArticle'
 
 interface FeaturedArticlesProps {
   posts: {
@@ -57,5 +61,7 @@ const FeaturedArticles: FC<FeaturedArticlesProps> = memo(({ posts }) => (
     </div>
   </section>
 ))
+
+FeaturedArticles.displayName = 'FeaturedArticles'
 
 export default FeaturedArticles
