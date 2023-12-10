@@ -99,7 +99,7 @@ export default function ListLayoutWithTags({
                           </dl>
                           <div className="space-y-3">
                             <div>
-                              <Link href={`/blog/${slug}`}>
+                              <Link href={`/${path}`}>
                                 <p className="text-base font-semibold capitalize leading-tight tracking-tight text-gray-700 hover:text-gray-900 dark:text-gray-100 sm:text-lg md:text-xl">
                                   {title}
                                 </p>
