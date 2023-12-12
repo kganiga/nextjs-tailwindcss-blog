@@ -12,7 +12,7 @@ export default function Footer() {
           {siteMetadata.title}
         </Link>
 
-        <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
+        <p className="mt-4 text-sm text-gray-600 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
           {`© ${new Date().getFullYear()}`} All rights reserved —
           <Link
             href="https://twitter.com/Im_Khalil"
