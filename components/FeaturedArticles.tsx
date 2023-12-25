@@ -1,5 +1,4 @@
 import React, { FC, memo } from 'react'
-// Replace the alias '@' with the correct path or alias for the Link component
 import Link from '@/components/Link'
 
 interface FeaturedArticleProps {

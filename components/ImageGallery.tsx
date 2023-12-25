@@ -1,11 +1,8 @@
-// pages/index.tsx
-import React from 'react';
-import Link from 'next/link';
-import Gallery from '../components/GalleryImage';
+import React from 'react'
+import Gallery from '../components/GalleryImage'
 
 const ImageGallery: React.FC = () => {
-   // Placeholder image URLs
-   const galleryImages = [
+  const galleryImages = [
     '/static/insta/1.jpg',
     '/static/insta/2.jpg',
     '/static/insta/3.jpg',
@@ -16,7 +13,7 @@ const ImageGallery: React.FC = () => {
     '/static/insta/8.jpg',
     '/static/insta/9.jpg',
     '/static/insta/10.jpg',
-  ];
+  ]
 
   return (
     <div className="mx-auto">
@@ -25,7 +22,7 @@ const ImageGallery: React.FC = () => {
         <Gallery images={galleryImages} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ImageGallery;
+export default ImageGallery

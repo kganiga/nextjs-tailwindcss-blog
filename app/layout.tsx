@@ -2,7 +2,7 @@ import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 
 import { Inter } from 'next/font/google'
-import { Sacramento } from 'next/font/google';
+import { Sacramento } from 'next/font/google'
 import { Analytics, AnalyticsConfig } from 'pliny/analytics'
 //import { SearchProvider, SearchConfig } from 'pliny/search'
 import SearchProvider from '@/components/SearchProvider'
@@ -17,14 +17,14 @@ const space_grotesk = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-space-grotesk',
-});
+})
 
 const sacramentoFont = Sacramento({
   weight: '400', // Add the weight property
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sacramento',
-});
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),

@@ -1,7 +1,8 @@
-import React from 'react';
+import React from 'react'
+import Image from '@/components/Image'
 
 interface GalleryProps {
-  images: string[];
+  images: string[]
 }
 
 const Gallery: React.FC<GalleryProps> = ({ images }) => {
@@ -9,11 +10,11 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
     <div className="gallery">
       {images.map((image, index) => (
         <div key={index} className="gallery-item">
-          <img src={image} alt={`Image ${index + 1}`} className="gallery-image" />
+          <Image src={image} alt={`Image ${index + 1}`} className="gallery-image" />
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default Gallery;
+export default Gallery
