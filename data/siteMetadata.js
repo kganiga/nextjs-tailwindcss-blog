@@ -7,20 +7,21 @@ const siteMetadata = {
   headerTitle: 'Quasilinear Thoughts',
   description: " - A developer's log book.",
   language: 'en-us',
-  theme: 'system', // system, dark or light
+  theme: 'system',
   siteUrl: 'https://khalilganiga.in',
   siteRepo: 'https://github.com/kganiga/nextjs-tailwindcss-blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'admin@khalilganiga.com',
+  email: 'contact@khalilganiga.in',
   github: 'https://github.com/kganiga',
   twitter: 'https://twitter.com/Im_Khalil',
   facebook: 'https://facebook.com/khalilbasha.g',
-  youtube: 'https://youtube.com',
+  youtube: 'https://youtube.com/khalilbasha.g',
   linkedin: 'https://www.linkedin.com/in/khalilg',
   instagram: 'https://instagram.com/khalilbasha.g',
   locale: 'en-US',
+  github_un: 'kganiga',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

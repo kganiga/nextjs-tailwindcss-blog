@@ -1,11 +1,19 @@
-import siteMetadata from '@/data/siteMetadata'
-import headerNavLinks from '@/data/headerNavLinks'
-import Link from './Link'
-import MobileNav from './MobileNav'
-import ThemeSwitch from './ThemeSwitch'
-import SearchButton from './SearchButton'
+"use client"
+import { useState } from 'react';
+import siteMetadata from '@/data/siteMetadata';
+import headerNavLinks from '@/data/headerNavLinks';
+import Link from './Link';
+import MobileNav from './MobileNav';
+import ThemeSwitch from './ThemeSwitch';
+import SearchButton from './SearchButton';
 
 const Header = () => {
+  const [activeLink, setActiveLink] = useState('');
+
+  const handleLinkClick = (title) => {
+    setActiveLink(title);
+  };
+
   return (
     <header className="flex items-center justify-between py-10">
       <div>
@@ -29,7 +37,12 @@ const Header = () => {
           <Link
             key={link.title}
             href={link.href}
-            className="hidden font-medium text-gray-900 dark:text-gray-100 sm:block"
+            className={`hidden font-medium rounded-md cursor-pointer p-2 ${
+              activeLink === link.title
+                ? 'bg-teal-400 text-white'
+                : 'hover:bg-teal-400 dark:hover:bg-teal-600 dark:hover:text-white'
+            } sm:block`}
+            onClick={() => handleLinkClick(link.title)}
           >
             {link.title}
           </Link>
@@ -39,7 +52,7 @@ const Header = () => {
         <MobileNav />
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

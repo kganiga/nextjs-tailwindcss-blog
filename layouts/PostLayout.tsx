@@ -11,6 +11,7 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import PostAuthor from '@/components/PostAuthor'
 import SocialShare from '@/components/SocialShare'
+import QRCodeGenerator from '@/components/QRCodeGenerator'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -145,6 +146,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
+              <QRCodeGenerator />
               <div className="pt-4 xl:pt-8">
                 <Link
                   href={`/${basePath}`}

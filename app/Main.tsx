@@ -1,18 +1,18 @@
 import Link from '@/components/Link'
 import BlogPosts from '@/components/BlogPosts'
 import FeaturedArticles from '@/components/FeaturedArticles'
-
+import Intro from '@/components/Intro'
 const MAX_DISPLAY = 10
 
 export default function Home({ posts }) {
   return (
     <>
       <div>
-        {/* <Intro />*/}
+        <Intro />
         <div className="min-h-12">
           {' '}
           {/* Adjust the height value as needed */}
-          <h6 className="m-6 pt-6 text-center text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
+          <h6 className="pt-6 text-left text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
             Latest Stories
           </h6>
         </div>
