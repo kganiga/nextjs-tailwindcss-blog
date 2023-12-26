@@ -10,7 +10,7 @@ const Gallery: React.FC<GalleryProps> = ({ images }) => {
     <div className="gallery">
       {images.map((image, index) => (
         <div key={index} className="gallery-item">
-          <Image src={image} alt={`Image ${index + 1}`} className="gallery-image" />
+          <Image src={image} alt={`Image ${index + 1}`} width={300} height={300} className="gallery-image" />
         </div>
       ))}
     </div>
