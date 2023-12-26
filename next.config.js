@@ -6,25 +6,23 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const withPWA = require('next-pwa')
 module.exports = withPWA({
-  //...before
   pwa: {
     dest: 'public',
     register: true,
     skipWaiting: true,
   },
-  //...after
 })
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app analytics.umami.is https://www.googletagmanager.com;
-  style-src 'self' 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' www.googletagmanager.com www.google-analytics.com;
+  style-src 'self' 'unsafe-inline' *.googleapis.com cdn.jsdelivr.net;
+  frame-src youtube.com www.youtube.com timlrx.shinyapps.io;
   img-src * blob: data:;
   media-src *.s3.amazonaws.com;
   connect-src *;
-  font-src 'self' https://fonts.gstatic.com;;
-  frame-src giscus.app youtube.com www.youtube.com
+  font-src 'self' fonts.gstatic.com cdn.jsdelivr.net
 `
 
 const securityHeaders = [
