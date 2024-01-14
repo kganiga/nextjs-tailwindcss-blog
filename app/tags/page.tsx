@@ -2,12 +2,15 @@ import Tag from '@/components/Tag'
 import tagData from 'app/tag-data.json'
 import { genPageMetadata } from 'app/seo'
 import { useRouter } from 'next/router'
+import { slug } from 'github-slugger'
+import Link from '@/components/Link'
+
 export const metadata = genPageMetadata({ title: 'Tags', description: 'Things I blog about' })
 
-export default async function Page() {
+export default function Page() {
   const tagCounts = tagData as Record<string, number>
   const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+
   return (
     <>
       <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-24 md:flex-row md:items-center md:justify-center md:space-x-6 md:divide-y-0">
@@ -18,16 +21,14 @@ export default async function Page() {
         </div>
         <div className="flex max-w-lg flex-wrap">
           {tagKeys.length === 0 && 'No tags found.'}
-          {sortedTags.map((t) => {
-            return (
-              <div
-                key={t}
-                className="bg-yellow ml-1 mr-1 inline-block rounded-full p-2 text-lg font-semibold text-white"
-              >
-                <Tag text={t} />
-              </div>
-            )
-          })}
+          {tagKeys.map((t) => (
+            <div
+              key={t}
+              className="align-center flex max-w-xl flex-wrap justify-center gap-2 leading-8"
+            >
+              <Tag text={t} count={tagCounts[t]} />
+            </div>
+          ))}
         </div>
       </div>
     </>

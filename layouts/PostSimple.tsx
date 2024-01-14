@@ -9,6 +9,7 @@ import SectionContainer from '@/components/SectionContainer'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import PostAuthor from '@/components/PostAuthor'
+import SocialShare from '@/components/SocialShare'
 interface LayoutProps {
   content: CoreContent<Blog>
   children: ReactNode
@@ -42,6 +43,7 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
           <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0">
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
+              <SocialShare title={title} url={`/blog/${slug}`} />
             </div>
             <PostAuthor />
             {siteMetadata.comments && (

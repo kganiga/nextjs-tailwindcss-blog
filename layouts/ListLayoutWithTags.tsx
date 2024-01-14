@@ -62,7 +62,7 @@ export default function ListLayoutWithTags({
                   return (
                     <li key={t} className="my-3">
                       {pathname.split('/tags/')[1] === slug(t) ? (
-                        <h3 className="inline px-3 py-2 text-sm font-bold text-primary-500">
+                        <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
                           {`${t} (${tagCounts[t]})`}
                         </h3>
                       ) : (
@@ -108,7 +108,9 @@ export default function ListLayoutWithTags({
                                 </p>
                               </Link>
                               <div className="flex flex-wrap">
-                                {tags?.map((tag) => <Tag key={tag} text={tag} />)}
+                                {tags?.map((tag) => (
+                                  <Tag key={tag} text={tag} count={tagCounts[tag]} />
+                                ))}
                               </div>
                             </div>
                           </div>

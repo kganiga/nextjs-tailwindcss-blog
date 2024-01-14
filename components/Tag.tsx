@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { slug } from 'github-slugger'
 interface Props {
   text: string
+  count: number
 }
 
 const tagColors = [
@@ -14,7 +15,7 @@ const tagColors = [
 ]
 let colorIndex = 0
 
-const Tag = ({ text }: Props) => {
+const Tag = ({ text, count }: Props) => {
   // Check if the current page is the tags page
   const pathName = usePathname()
 
@@ -22,20 +23,34 @@ const Tag = ({ text }: Props) => {
   const colorClass = tagColors[colorIndex]
   colorIndex = (colorIndex + 1) % tagColors.length
 
-  // Conditionally render the Link component based on whether it's the tags page
+  let textSizeClass = ''
+  if (count >= 0 && count < 5) {
+    textSizeClass = 'text-xs'
+  } else if (count >= 5 && count < 10) {
+    textSizeClass = 'text-lg'
+  } else if (count >= 10 && count < 15) {
+    textSizeClass = 'text-2xl'
+  } else if (count >= 15 && count < 20) {
+    textSizeClass = 'text-3xl'
+  } else if (count >= 20 && count < 25) {
+    textSizeClass = 'text-4xl'
+  } else {
+    textSizeClass = 'text-4xl'
+  }
+
   return (
     <>
       {isTagsPage ? (
         <Link
           href={`/tags/${slug(text)}`}
-          className={`text-s  items-center rounded-full p-3 text-center font-medium capitalize sm:flex ${colorClass}`}
+          className={`m-2 py-1 uppercase ${textSizeClass} font-semibold text-${colorClass}`}
         >
           {text.split(' ').join('-')}
         </Link>
       ) : (
         <Link
           href={`/tags/${slug(text)}`}
-          className={`mt-3 hidden items-center px-5 py-1 text-center text-xs font-medium capitalize sm:flex ${colorClass}`}
+          className={`mx-1 mt-3 max-w-max rounded bg-[#d9dfe3] px-3 py-1 text-[12px] font-semibold capitalize text-${colorClass}`}
         >
           {text.split(' ').join('-')}
         </Link>
