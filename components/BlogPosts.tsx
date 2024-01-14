@@ -28,7 +28,7 @@ const BlogPosts = ({ posts }) => {
               </Link>
               <div className="flex flex-wrap">
                 {tags.slice(0, 3).map((tag) => (
-                  <Tag key={tag} text={tag} />
+                  <Tag key={tag} text={tag} count={0} />
                 ))}
               </div>
             </div>
