@@ -29,7 +29,7 @@ export default function AuthorLayout({ children, content }: Props) {
             {children}
           </div>
 
-          <div className="flex-col items-center space-x-2 pt-8 xl:flex hidden">
+          <div className="hidden flex-col items-center space-x-2 pt-8 xl:flex">
             <ProfileCard />
           </div>
         </div>
