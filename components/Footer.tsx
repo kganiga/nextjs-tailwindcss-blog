@@ -15,12 +15,12 @@ export default function Footer() {
         <p className="mt-4 text-sm text-gray-600 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
           {`© ${new Date().getFullYear()}`} All rights reserved —
           <Link
-            href="https://twitter.com/Im_Khalil"
+            href={'/about'}
             className="ml-1 text-gray-600 hover:underline"
             rel="noopener noreferrer"
             target="_blank"
           >
-            @{siteMetadata.author}
+            {siteMetadata.author}
           </Link>
         </p>
         <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
