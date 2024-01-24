@@ -18,13 +18,13 @@ module.exports = withPWA({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com giscus.app analytics.umami.is https://www.googletagmanager.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com khalilganiga.disqus.com giscus.app analytics.umami.is https://www.googletagmanager.com va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
   media-src *.s3.amazonaws.com;
   connect-src *;
   font-src 'self' https://fonts.gstatic.com;;
-  frame-src giscus.app youtube.com www.youtube.com
+  frame-src giscus.app youtube.com www.youtube.com disqus.com
 `
 
 const securityHeaders = [
