@@ -20,7 +20,7 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' www.google-analytics.com khalilganiga.disqus.com giscus.app analytics.umami.is https://www.googletagmanager.com va.vercel-scripts.com;
   style-src 'self' 'unsafe-inline';
-  img-src * blob: data:;
+  img-src * blob: data: freeimghost.net;
   media-src *.s3.amazonaws.com;
   connect-src *;
   font-src 'self' https://fonts.gstatic.com;;
