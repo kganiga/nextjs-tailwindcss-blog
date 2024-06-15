@@ -12,6 +12,7 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import PostAuthor from '@/components/PostAuthor'
 import SocialShare from '@/components/SocialShare'
 import QRCodeGenerator from '@/components/QRCodeGenerator'
+import RelatedPosts from '@/components/RelatedPosts'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -97,7 +98,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               <SocialShare title={title} url={`/blog/${slug}`} />
+
               <PostAuthor />
+              <RelatedPosts tags={tags} currentSlug={slug} />
               {siteMetadata.comments && (
                 <div
                   className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
@@ -108,6 +111,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               )}
             </div>
             <footer>
+              <QRCodeGenerator />
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
                 {tags && (
                   <div className="py-4 xl:py-8">
@@ -146,7 +150,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                   </div>
                 )}
               </div>
-              <QRCodeGenerator />
+
               <div className="pt-4 xl:pt-8">
                 <Link
                   href={`/${basePath}`}

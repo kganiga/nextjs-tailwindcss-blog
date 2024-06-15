@@ -1,5 +1,5 @@
 ---
-title: Implementing a Spinner Dialog and Block User Input During REST API Calls in AEM
+title: Implementing A Spinner Dialog and Block User Input During REST API Calls in AEM
 date: '2024-06-12'
 tags: ['AEM', 'How to', 'Programming', 'JavaScript']
 draft: false
@@ -8,10 +8,13 @@ images: ['/static/posts/images/coral-ui.png']
 layout: PostLayout
 isfeatured: false
 ---
+
 In web development, ensuring a seamless user experience during asynchronous operations is crucial. Recently, I came across a use case where I needed display a spinner dialog and block user input while a REST call was in progress in AEM. This post walks you through how I achieved this by leveraging Coral UI components.
+
 [Coral UI Documentation](https://developer.adobe.com/experience-manager/reference-materials/6-5/coral-ui/coralui3/components.html)
 
 ## The Challenge
+
 When a REST call is initiated, it's important to prevent users from interacting with the application until the operation is complete. Initially, I used the `Coral Wait` API to display a waiting dialog during the AJAX call. While this did show a loader, it did not completely prevent user interactions in the background. Users were still able to click on elements, which could potentially disrupt the REST operation and lead to inconsistent states.
 
 ## Initial Approach: Using Coral Wait API
@@ -103,6 +106,7 @@ Here's how I implemented the enhanced solution
   background-color: inherit;
 }
 ```
+
 Below is the screenshot of the result
 
 ![](/static/posts/images/coral-ui.png)
