@@ -2,18 +2,21 @@
 import siteMetadata from '@/data/siteMetadata'
 import React from 'react'
 import SocialIcon from './social-icons'
+import Image from 'next/image'
 
 // Create the Next.js component using TypeScript
 const ProfileCard = () => {
   return (
     <div className="w-full bg-gray-100 px-5 pt-2">
-      <div className="relative mx-auto mb-16 mt-16 mt-24 max-w-sm">
+      <div className="relative mx-auto mb-16 mt-24 max-w-sm">
         <div className="overflow-hidden rounded bg-white shadow-md">
           <div className="absolute -mt-20 flex w-full justify-center">
             <div className="h-32 w-32">
-              <img
+              <Image
                 src={'/static/images/avatar.jpg'}
                 className="h-full w-full rounded-full object-cover shadow-md"
+                width={800}
+                height={800}
                 alt={siteMetadata.author}
               />
             </div>

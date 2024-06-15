@@ -20,7 +20,7 @@ interface LayoutProps {
 }
 
 export default function PostMinimal({ content, children }: LayoutProps) {
-  const { slug, title, images,tags } = content
+  const { slug, title, images, tags } = content
   const displayImage =
     images && images.length > 0 ? images[0] : 'https://picsum.photos/seed/picsum/800/400'
 
