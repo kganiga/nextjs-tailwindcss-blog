@@ -13,7 +13,7 @@ export default function Home({ posts }) {
           {' '}
           {/* Adjust the height value as needed */}
           <h6 className="pt-6 text-left text-xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-2xl md:text-3xl">
-            Latest Stories
+            Latest articles
           </h6>
         </div>
 
