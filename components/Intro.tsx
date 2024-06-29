@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+
 const Intro = () => {
   return (
     <div className="container mx-auto flex flex-col items-center py-16 md:flex-row">
@@ -13,7 +14,7 @@ const Intro = () => {
             className="custom-border-radius object-cover"
           />
         </div>
-        <div className="absolute left-0 top-0 z-0 h-full w-full -translate-x-12 translate-y-12 transform rounded-full bg-gray-200"></div>
+        <div className="absolute left-0 top-0 z-0 h-full w-full translate-x-0 translate-y-0 transform rounded-full bg-gray-200 md:-translate-x-12 md:translate-y-12"></div>
       </div>
       <div className="w-full px-4 text-center md:w-1/2 md:text-left">
         <h2 className="mb-4 text-4xl font-bold md:text-5xl">

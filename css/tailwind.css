@@ -298,3 +298,12 @@ ul.cloud a:hover::before {
 .custom-border-radius {
   border-radius: 63% 37% 50% 50% / 70% 68% 32% 30%;
 }
+
+@media (max-width: 768px) {
+  .translate-x-0 {
+    transform: translateX(0);
+  }
+  .translate-y-0 {
+    transform: translateY(0);
+  }
+}
