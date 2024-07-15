@@ -8,7 +8,7 @@ export default function Home({ posts }) {
   return (
     <>
       <div>
-        {/* <Intro /> */}
+        <Intro />
         <div className="min-h-12">
           {' '}
           {/* Adjust the height value as needed */}
