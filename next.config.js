@@ -77,7 +77,7 @@ module.exports = () => {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },
     images: {
-      domains: ['picsum.photos', 'khalilganiga.in', 'flickr.com', 'freeimghost.net/'],
+      domains: ['picsum.photos', 'khalilganiga.in', 'flickr.com', 'freeimghost.net'],
     },
     async headers() {
       return [
