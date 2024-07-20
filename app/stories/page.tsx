@@ -12,7 +12,7 @@ export default function Stories() {
       allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes('stories'))
     )
   )
-  
+
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">

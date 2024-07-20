@@ -24,10 +24,18 @@ export default function Footer() {
           >
             Privacy Policy
           </Link>
-          <Link href="/about" className="text-gray-600 hover:text-primary-500" aria-label="about-us">
+          <Link
+            href="/about"
+            className="text-gray-600 hover:text-primary-500"
+            aria-label="about-us"
+          >
             About
           </Link>
-          <Link href="/contact" className="text-gray-600 hover:text-primary-500" aria-label="contact-us">
+          <Link
+            href="/contact"
+            className="text-gray-600 hover:text-primary-500"
+            aria-label="contact-us"
+          >
             Contact
           </Link>
         </div>
