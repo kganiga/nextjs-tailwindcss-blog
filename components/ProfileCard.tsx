@@ -7,10 +7,10 @@ import Image from 'next/image'
 // Create the Next.js component using TypeScript
 const ProfileCard = () => {
   return (
-    <div className="w-full bg-gray-100 px-5 pt-2">
+    <div className="w-full bg-gray-100 px-5 pt-2 dark:bg-gray-900">
       <div className="relative mx-auto mb-16 mt-24 max-w-sm">
-        <div className="overflow-hidden rounded bg-white shadow-md">
-          <div className="absolute -mt-20 flex w-full justify-center">
+        <div className="overflow-hidden rounded bg-white shadow-md dark:bg-gray-900">
+          <div className="absolute -mt-20 flex w-full justify-center" >
             <div className="h-32 w-32">
               <Image
                 src={'/static/images/avatar.jpg'}

@@ -129,9 +129,38 @@ export const Authors = defineDocumentType(() => ({
   computedFields,
 }))
 
+export const PrivacyPolicy = defineDocumentType(() => ({
+  name: 'PrivacyPolicy',
+  filePathPattern: 'privacy/**/*.mdx',
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    date: { type: 'date', required: true },
+    lastmod: { type: 'date' },
+    draft: { type: 'boolean' },
+    summary: { type: 'string' },
+    layout: { type: 'string' },
+  },
+  computedFields: {
+    ...computedFields,
+    structuredData: {
+      type: 'json',
+      resolve: (doc) => ({
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        headline: doc.title,
+        datePublished: doc.date,
+        dateModified: doc.lastmod || doc.date,
+        description: doc.summary,
+        url: `${siteMetadata.siteUrl}/${doc._raw.flattenedPath}`,
+      }),
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Authors],
+  documentTypes: [Blog, Authors, PrivacyPolicy],
   mdx: {
     cwd: process.cwd(),
     remarkPlugins: [

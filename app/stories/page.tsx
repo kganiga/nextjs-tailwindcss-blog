@@ -3,13 +3,16 @@ import CardComponent from '@/components/CardComponent'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
 import { slug } from 'github-slugger'
+
 export const metadata = genPageMetadata({ title: 'Stories' })
-export default function Stroies() {
+
+export default function Stories() {
   const storiesData = allCoreContent(
     sortPosts(
       allBlogs.filter((post) => post.tags && post.tags.map((t) => slug(t)).includes('stories'))
     )
   )
+  
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -19,7 +22,7 @@ export default function Stroies() {
           </h1>
         </div>
       </div>
-      <hr />
+      <hr className="border-gray-300 dark:border-gray-600" />
       <CardComponent cards={storiesData} />
     </>
   )

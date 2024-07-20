@@ -11,7 +11,6 @@ import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import PostAuthor from '@/components/PostAuthor'
 import SocialShare from '@/components/SocialShare'
-import QRCodeGenerator from '@/components/QRCodeGenerator'
 import RelatedPosts from '@/components/RelatedPosts'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
