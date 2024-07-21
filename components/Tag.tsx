@@ -66,7 +66,7 @@ const Tag = ({ text, count }: Props) => {
           href={`/tags/${slug(text)}`}
           className={`mx-1 mt-3 max-w-max rounded bg-[#d9dfe3] px-2 py-1 text-[12px] font-semibold capitalize ${colorClass}`}
         >
-           {formattedText}
+          {formattedText}
         </Link>
       )}
     </>
