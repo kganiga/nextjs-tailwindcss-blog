@@ -35,13 +35,13 @@ export default function ListLayoutWithTags({
   const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
 
   const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
-
+  const formattedTitle = title.split('-').join(' ')
   return (
     <>
       <div>
         <div className="pb-6 pt-6">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
+          <h1 className="text-3xl font-extrabold uppercase leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
+            {formattedTitle}
           </h1>
         </div>
         <div className="flex sm:space-x-24">
@@ -59,11 +59,12 @@ export default function ListLayoutWithTags({
               )}
               <ul>
                 {sortedTags.map((t) => {
+                  const formattedTag = t.split('-').join(' ')
                   return (
                     <li key={t} className="my-3">
                       {pathname.split('/tags/')[1] === slug(t) ? (
                         <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
-                          {`${t} (${tagCounts[t]})`}
+                          {`${formattedTag} (${tagCounts[t]})`}
                         </h3>
                       ) : (
                         <Link
@@ -71,7 +72,7 @@ export default function ListLayoutWithTags({
                           className="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
                           aria-label={`View posts tagged ${t}`}
                         >
-                          {`${t} (${tagCounts[t]})`}
+                          {`${formattedTag} (${tagCounts[t]})`}
                         </Link>
                       )}
                     </li>

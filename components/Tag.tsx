@@ -51,7 +51,7 @@ const Tag = ({ text, count }: Props) => {
 
   // Center content vertically and horizontally
   const alignmentClass = 'flex items-center justify-center'
-
+  const formattedText = text.split('-').join(' ')
   return (
     <>
       {isTagsPage ? (
@@ -59,14 +59,14 @@ const Tag = ({ text, count }: Props) => {
           href={`/tags/${slug(text)}`}
           className={`m-2 rounded ${paddingClass} ${alignmentClass} uppercase ${textSizeClass} font-semibold ${colorClass}`}
         >
-          {text}
+          {formattedText}
         </Link>
       ) : (
         <Link
           href={`/tags/${slug(text)}`}
           className={`mx-1 mt-3 max-w-max rounded bg-[#d9dfe3] px-2 py-1 text-[12px] font-semibold capitalize ${colorClass}`}
         >
-          {text}
+           {formattedText}
         </Link>
       )}
     </>
