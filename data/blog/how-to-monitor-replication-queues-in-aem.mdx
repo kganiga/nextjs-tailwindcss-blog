@@ -1,15 +1,13 @@
 ---
 title: How to monitor replication queues in AEM
 date: '2024-08-08'
-tags: ['AEM', 'how to', 'tutorials', 'programming', 'java', 'replication','adobe']
+tags: ['AEM', 'how to', 'tutorials', 'programming', 'java', 'replication', 'adobe']
 draft: false
 summary: This blog post explains how to create a custom service in AEM to monitor replication queues. The service checks if the queue is blocked and sends notifications to admin users if issues arise. It also includes a scheduler to automatically run the monitoring at set intervals.
 images: ['https://freeimghost.net/images/2024/08/08/how-to-monitor-replication-queue-in-aem.jpg']
 layout: PostLayout
 isfeatured: false
 ---
-
-<TOCInline toc={props.toc} exclude="Overview" toHeading={3} />
 
 Few years back I worked on a use case where it was crucial to monitor the replication queues in AEM. If the replication queue becomes blocked, it can be challenging to pinpoint the reason, which can lead to content delivery issues. To address this, I've designed and developed a custom script that monitors the replication queue and notifies admin users whenever potential issues arise. In this post, I’ll walk you through how to implement this solution, including setting up a scheduler to automate the monitoring process.
 
