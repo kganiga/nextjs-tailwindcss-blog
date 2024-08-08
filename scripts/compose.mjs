@@ -1,7 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import inquirer from 'inquirer';
-import dedent from 'dedent';
+import fs from 'fs'
+import path from 'path'
+import inquirer from 'inquirer'
+import dedent from 'dedent'
 
 const root = process.cwd()
 
@@ -99,6 +99,12 @@ inquirer
       type: 'list',
       choices: ['yes', 'no'],
     },
+    {
+      name: 'isStory',
+      message: 'Is this a story?',
+      type: 'list',
+      choices: ['yes', 'no'],
+    },
   ])
   .then((answers) => {
     const d = new Date()
@@ -113,9 +119,13 @@ inquirer
       .replace(/[^a-zA-Z0-9 ]/g, '')
       .replace(/ /g, '-')
       .replace(/-+/g, '-')
+
+    // Determine the directory based on whether it's a story or not
+    const directory = answers.isStory === 'yes' ? 'data/musings' : 'data/blog'
+    const filePath = `${directory}/${fileName ? fileName : 'untitled'}.${answers.extention ? answers.extention : 'md'}`
+
     const frontMatter = genFrontMatter(answers)
-    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${answers.extention ? answers.extention : 'md'
-      }`
+
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
