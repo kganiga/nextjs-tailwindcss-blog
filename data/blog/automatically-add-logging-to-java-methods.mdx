@@ -8,6 +8,7 @@ images: []
 layout: PostLayout
 isfeatured: false
 ---
+
 Ever been in a situation where you need to add logging statements to a bunch of methods? Manually putting logs into each method can be tedious, especially if you have a lot of methods across multiple files. 
 
 In this post, I'll walk you through a Java code snippet that takes an existing Java class and injects logging statements at the start and end of each method. This code will log whenever we enter or exit a method, which can be super helpful when tracking down issues or understanding the flow of a program.
@@ -46,8 +47,9 @@ import java.util.Optional;
 public class LoggerInjector {
 
     public static void main(String[] args) throws Exception {
-        String filePath = "YourJavaClassPath";
+        String filePath = "YourJavaFilePath";               
         String logLevel = "debug";
+        String actionMessage = "\"";
         FileInputStream in = new FileInputStream(filePath);
         ParseResult<CompilationUnit> parseResult = new JavaParser().parse(in);
 
@@ -60,7 +62,7 @@ public class LoggerInjector {
                 String loggerName = loggerVariableName.get();
                 cu.findAll(ClassOrInterfaceDeclaration.class).forEach(coid -> {
                     coid.getMethods().forEach(method -> {
-                        addLoggingToMethod(method, loggerName, logLevel);
+                        addLoggingToMethod(method, loggerName, logLevel,actionMessage);
                     });
                 });
 
@@ -83,22 +85,38 @@ public class LoggerInjector {
                 .flatMap(field -> field.getVariables().stream()).findFirst().map(var -> var.getNameAsString());
     }
 
-    private static void addLoggingToMethod(MethodDeclaration method, String loggerVariableName, String logLevel) {
+    private static void addLoggingToMethod(MethodDeclaration method, String loggerVariableName, String logLevel,
+            String actionMsg) {
         String methodName = method.getNameAsString();
         BlockStmt body = method.getBody().orElse(new BlockStmt());
 
         JavaParser javaParser = new JavaParser();
 
-        ParseResult<com.github.javaparser.ast.stmt.Statement> entryResult = javaParser
-                .parseStatement(loggerVariableName + "." + logLevel + "(\"Enter: " + methodName + "()\");");
+        ParseResult<com.github.javaparser.ast.stmt.Statement> entryResult = javaParser.parseStatement(
+                loggerVariableName + "." + logLevel + "(" + actionMsg + "Entering: " + methodName + "()\");");
         entryResult.getResult().ifPresent(statement -> body.addStatement(0, statement));
 
-        ParseResult<com.github.javaparser.ast.stmt.Statement> exitResult = javaParser
-                .parseStatement(loggerVariableName + "." + logLevel + "(\"Exit: " + methodName + "()\");");
-        exitResult.getResult().ifPresent(statement -> body.addStatement(statement));
+        ParseResult<com.github.javaparser.ast.stmt.Statement> exitResult = javaParser.parseStatement(
+                loggerVariableName + "." + logLevel + "(" + actionMsg + "Exiting: " + methodName + "()\");");
+
+        if (exitResult.isSuccessful() && exitResult.getResult().isPresent()) {
+            com.github.javaparser.ast.stmt.Statement exitStatement = exitResult.getResult().get();
+
+            Optional<com.github.javaparser.ast.stmt.Statement> lastReturnStmt = body.getStatements().stream()
+                    .filter(stmt -> stmt instanceof com.github.javaparser.ast.stmt.ReturnStmt)
+                    .reduce((first, second) -> second); // This will get the last return statement if present
+
+            if (lastReturnStmt.isPresent()) {
+                body.addStatement(body.getStatements().indexOf(lastReturnStmt.get()), exitStatement);
+            } else {
+                body.addStatement(exitStatement);
+            }
+        }
 
         method.setBody(body);
     }
+
+
 }
 ```
 **Breaking Down the Code**
