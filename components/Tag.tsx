@@ -20,7 +20,7 @@ const Tag = ({ text, count }: Props) => {
   const pathName = usePathname()
 
   const isTagsPage = pathName === '/tags'
-  const colorClass = tagColors[colorIndex]
+  const colorClass ="bg-teal-500 text-white"
   colorIndex = (colorIndex + 1) % tagColors.length
 
   // Determine padding based on count
