@@ -23,7 +23,7 @@ export default function Stories() {
         </div>
       </div>
       <hr className="border-gray-300 dark:border-gray-600" />
-      <CardComponent cards={storiesData} />
+      <CardComponent cards={storiesData} itemsPerPage={7} />
     </>
   )
 }
