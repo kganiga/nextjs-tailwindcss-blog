@@ -27,9 +27,7 @@ export default function StorySlider({ posts }: StorySliderProps) {
   const featuredStory = storyPosts.find((post) => post.isfeatured) || storyPosts[0]
 
   // Get remaining stories (excluding the featured one)
-  const remainingStories = storyPosts
-    .filter((post) => post.slug !== featuredStory.slug)
-    .slice(0, 4)
+  const remainingStories = storyPosts.filter((post) => post.slug !== featuredStory.slug).slice(0, 4)
 
   return (
     <section className="py-6">
