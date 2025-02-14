@@ -2,6 +2,7 @@ import Link from '@/components/Link'
 import BlogPosts from '@/components/BlogPosts'
 import FeaturedArticles from '@/components/FeaturedArticles'
 import Intro from '@/components/Intro'
+import StorySlider from '@/components/StorySlider'
 const MAX_DISPLAY = 10
 
 export default function Home({ posts }) {
@@ -9,6 +10,8 @@ export default function Home({ posts }) {
     <>
       <div>
         <Intro />
+        <hr className="dark:border-white-700 border-gray-200 pb-12" />
+        <StorySlider posts={posts} />
         <div className="min-h-12">
           {' '}
           {/* Adjust the height value as needed */}

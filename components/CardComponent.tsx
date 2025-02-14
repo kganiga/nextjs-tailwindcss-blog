@@ -53,7 +53,7 @@ const CardComponent = ({ cards, itemsPerPage = 6 }) => {
           className={`rounded-full px-4 py-2 text-white ${
             currentPage === 1
               ? 'cursor-not-allowed bg-gray-300'
-              : 'bg-primary-600 hover:bg-blue-700'
+              : 'bg-primary-600 hover:bg-primary-700'
           }`}
         >
           ← Prev

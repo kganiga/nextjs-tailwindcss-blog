@@ -14,7 +14,6 @@ const FeaturedArticle: FC<FeaturedArticleProps> = memo(({ slug, title, summary }
       <div className="relative h-full rounded-lg border-2 border-teal-500 bg-white p-5 dark:border-gray-800 dark:bg-gray-900">
         <div className="-mt-1 flex items-center">
           <h3 className="text-lg font-semibold capitalize dark:text-gray-100">
-            {/* Replace the alias '@' with the correct path or alias for the Link component */}
             <Link href={`/blog/${slug}`} className="dark:text-gray-100">
               {title}
             </Link>
@@ -35,6 +34,7 @@ interface FeaturedArticlesProps {
     title: string
     summary: string
     isfeatured: boolean
+    tags: string[] // Ensure the tags property is included
   }[]
 }
 
@@ -45,14 +45,14 @@ const FeaturedArticles: FC<FeaturedArticlesProps> = memo(({ posts }) => (
         What's Popular
       </h2>
       <p className="mb-12 text-center text-lg text-gray-500">
-        Popular, evergreen tutorials, utilities and how-to guides.
+        Popular, evergreen tutorials, utilities, and how-to guides.
       </p>
     </div>
 
     <div className="w-full">
       <div className="mb-10 flex w-full flex-wrap">
         {posts
-          .filter((frontMatter) => frontMatter.isfeatured === true)
+          .filter((post) => post.isfeatured && !post.tags.includes('stories')) // Exclude 'stories' tag
           .map(({ slug, title, summary }) => (
             <FeaturedArticle key={slug} slug={slug} title={title} summary={summary} />
           ))}
