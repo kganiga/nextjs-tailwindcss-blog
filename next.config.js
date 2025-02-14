@@ -1,4 +1,9 @@
-const { withContentlayer } = require('next-contentlayer')
+const { withContentlayer } = require('next-contentlayer');
+
+module.exports = withContentlayer({
+  reactStrictMode: true,
+});
+
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
