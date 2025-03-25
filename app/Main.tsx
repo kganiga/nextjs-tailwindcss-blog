@@ -10,8 +10,6 @@ export default function Home({ posts }) {
     <>
       <div>
         <Intro />
-        <hr className="dark:border-white-700 border-gray-200 pb-12" />
-        <StorySlider posts={posts} />
         <div className="min-h-12">
           {' '}
           {/* Adjust the height value as needed */}
@@ -32,6 +30,9 @@ export default function Home({ posts }) {
       )}
       <hr className="dark:border-white-700 border-gray-200 pb-12" />
       <FeaturedArticles posts={posts} />
+      <hr className="dark:border-white-700 border-gray-200 pb-12" />
+      <StorySlider posts={posts} />
+      <hr className="dark:border-white-700 border-gray-200 pb-12" />
     </>
   )
 }
